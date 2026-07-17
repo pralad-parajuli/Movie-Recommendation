@@ -1,4 +1,5 @@
 import requests
+from pathlib import Path
 
 import streamlit as st
 import pickle
@@ -25,11 +26,14 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-with open('movies_dict.pkl', 'rb') as f:
+BASE_DIR = Path(__file__).resolve().parent
+
+with open(BASE_DIR / 'movies_dict.pkl', 'rb') as f:
      movies = pickle.load(f)
 
 movie_titles = movies["title"].values
-similarity=pickle.load(open("similarity.pkl","rb"))
+with open(BASE_DIR / 'similarity.pkl', 'rb') as f:
+    similarity = pickle.load(f)
 
 control_left, control_right = st.columns([3, 1])
 with control_left:
