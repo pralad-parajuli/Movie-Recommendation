@@ -45,7 +45,7 @@ with control_right:
 def fetch_poster(movie_id):
     try:
         response = requests.get(
-            'https://api.themoviedb.org/3/movie/{movie_id}?api_key={YOUR API KEY}&language=en-US'.format(movie_id=movie_id),
+            'https://api.themoviedb.org/3/movie/{movie_id}?api_key=edf91e24b42b21ccc6d8ac383a5a3238&language=en-US'.format(movie_id=movie_id),
             timeout=10,
         )
         response.raise_for_status()
